@@ -14,7 +14,7 @@ fun fromSequence() {
     println("Enter each sequences, separate letters by space and sequence by new line:")
     val sequence = (0 until sequenceNb).map {
         print("Sequence ${(it + 65).toChar()}: ")
-        readln().split(" ").map { it.toCharArray().first() }
+        readln().replace(" ","").chunked(1).map { it.first() }
     }
 
     val m = UPGMAMatrix.fromSequence(sequence)
